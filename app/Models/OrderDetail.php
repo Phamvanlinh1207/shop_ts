@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class OrderDetail extends Model
+{
+    use HasFactory;
+
+    protected $table = 'order_detail';
+    protected $fillable = [
+        'product_id',
+        'order_id',
+        'quantity',
+    ];
+    public function OrderDetail(){
+        return $this->hasMany(OrderDetail::class);
+    }
+
+    public function User(){
+        return $this->belongsTo(OrderDetail::class);
+    }
+}
